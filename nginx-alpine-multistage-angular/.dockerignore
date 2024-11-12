@@ -1,0 +1,11 @@
+# Ignore all
+**
+
+# Allow only necessary files
+!src/
+!angular.json
+!package.json
+!tsconfig.app.json
+!tsconfig.json
+!tsconfig.spec.json
+!default.conf.template
