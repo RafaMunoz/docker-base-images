@@ -17,4 +17,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY --chown=appuser:appuser src .
 USER appuser
 
-CMD ["/bin/sh", "-c", "uvicorn app:app --host 0.0.0.0 --port $PORT"]
+CMD ["/bin/sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT}"]
