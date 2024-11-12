@@ -4,3 +4,4 @@
 # Allow only necessary files
 !src/
 !pom.xml
+!docker-entrypoint.sh

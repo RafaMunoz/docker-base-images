@@ -22,7 +22,10 @@ WORKDIR ${APP_HOME}
 
 RUN addgroup --system appuser && adduser --system --no-create-home appuser --ingroup appuser
 
+COPY --chown=appuser:appuser --chmod=755 docker-entrypoint.sh .
+
 COPY --from=build /app/target/*.jar ${APP_HOME}/app.jar
 USER appuser
 
+ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["/bin/sh", "-c", "java ${JAVA_OPTS} -jar ${APP_HOME}/app.jar"]
