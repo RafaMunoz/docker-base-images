@@ -17,12 +17,12 @@ ENV PORT=8080 \
     APP_HOME=/app \
     JAVA_OPTS=""
 
-EXPOSE 8080
-WORKDIR /app
+EXPOSE ${PORT}
+WORKDIR ${APP_HOME}
 
 RUN addgroup --system appuser && adduser --system --no-create-home appuser --ingroup appuser
 
-COPY --from=build /app/target/*.jar $APP_HOME/app.jar
+COPY --from=build /app/target/*.jar ${APP_HOME}/app.jar
 USER appuser
 
-CMD ["/bin/sh", "-c", "java $JAVA_OPTS -jar $APP_HOME/app.jar"]
+CMD ["/bin/sh", "-c", "java ${JAVA_OPTS} -jar ${APP_HOME}/app.jar"]
