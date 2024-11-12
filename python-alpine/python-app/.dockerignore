@@ -4,3 +4,4 @@
 # Allow only necessary files
 !src/
 !requirements.txt
+!docker-entrypoint.sh
