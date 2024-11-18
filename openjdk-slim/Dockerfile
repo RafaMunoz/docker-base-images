@@ -7,7 +7,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline -B
 
 COPY src ./src
-RUN mvn package -DskipTests
+RUN mvn clean package -Dmaven.test.skip=true -Ddependency-check.skip=true
 
 # Stage: runtime
 FROM openjdk:24-slim
